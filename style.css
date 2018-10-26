@@ -137,7 +137,6 @@
       }
       #video {
         display: block;
-        margin: 0 auto;
-        width: 560;
-        height: 315;
+        margin-left: 45%;
+        width: 10%;
       }
