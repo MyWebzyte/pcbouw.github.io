@@ -132,4 +132,12 @@
       #form {
         display: block;
         margin: 0 auto;
+        width: 640;
+        height: 1603;
+      }
+      #video {
+        display: block;
+        margin: 0 auto;
+        width: 560px;
+        height: 315px;
       }
