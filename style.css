@@ -1,6 +1,6 @@
   body {
     background-color: #3a3a3a;
-    background-size: 0.1px;
+    background-size: 0.1;
     color: white;
   }
   a {
@@ -138,6 +138,6 @@
       #video {
         display: block;
         margin: 0 auto;
-        width: 560px;
-        height: 315px;
+        width: 560;
+        height: 315;
       }
