@@ -1,4 +1,21 @@
-  body {
+#egg {
+  background-color: red;
+  animation: ani222 1s infinite;
+  text-align: center;
+  color: white;
+}
+@keyframes ani222 {
+  0% {background-color: red;}
+  34% {background-color: orange;}
+  41% {background-color: yellow;}
+  58% {background-color: green;}
+  75% {background-color: blue;}
+  100% {background-color: purple;}
+}
+#egglink {
+  color: white;
+} 
+body {
     background-color: #3a3a3a;
     background-size: 0.1;
     color: white;
