@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Easter egg</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
   </head>
   <body id="egg">
     <div id="block">
@@ -14,7 +13,24 @@
     </h1>
     <p id="p">
       Je hebt de easter egg gevonden.
-      <br>Dit is het.<br>Verder is er niks.</p><br><a href="index.html" id="egglink">Terug naar Home</a>
+      <br>Dit is het.<br>Verder is er niks.</p>
+      <p>World hella end in</p><p id="klok"></p><br>
+        <script>
+        var tijd = 60;
+        var klok = document.getElementById("klok");
+        
+        setInterval(timer, 1000);
+          
+        function timer() {
+          if(tijd==0) {
+            clearInterval(timer);
+          } else {
+            tijd--;
+            klok.innerHTML = tijd;
+          }
+        }
+      </script>
+      <a href="index.html" id="egglink">Terug naar Home</a>
       <img src="https://fat.gfycat.com/UnimportantFickleBear.gif" width="100%">
     </div>
   </body>
