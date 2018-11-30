@@ -16,7 +16,7 @@
       <br>Dit is het.<br>Verder is er niks.</p>
       <p>World hella end in</p><p id="klok"></p><br>
         <script>
-        var tijd = 60;
+        var tijd = 10;
         var klok = document.getElementById("klok");
         
         setInterval(timer, 1000);
@@ -24,6 +24,7 @@
         function timer() {
           if(tijd==0) {
             clearInterval(timer);
+            alert("boem");
           } else {
             tijd--;
             klok.innerHTML = tijd;
