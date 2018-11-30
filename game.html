@@ -8,105 +8,6 @@
     <link rel="icon" type="image/gif" href="icon.png" />
     <link rel="stylesheet" href="style.css">
     <script>
-        function start() {
-        var tekst = document.getElementById("test");
-        var output = document.getElementById("resultaat");
-        var compk = ['De processor?', 'Het ram?', 'De videokaart?', 'De SATA apparaten worden aangesloten?', 'De overige resterende kabeltjes?', 'Je jouw apparaten aansluiten?', 'De moederbord stroom input?'];
-        var comp = compk[Math.round(Math.random()*(compk.length-1))];
-
-        tekst.innerHTML = comp;
-      }
-      function pros() {
-        var tekst = document.getElementById("test");
-        var output = document.getElementById("resultaat");
-
-        if(tekst.innerHTML=="De processor?") {
-          output.innerHTML = "goed";
-          output.style.color = "green";
-          start();
-        } else {
-          output.innerHTML = "fout";
-          output.style.color = "red";
-        }
-      }
-      function ram() {
-        var tekst = document.getElementById("test");
-        var output = document.getElementById("resultaat");
-
-        if(tekst.innerHTML=="Het ram?") {
-          output.innerHTML = "goed";
-          output.style.color = "green";
-          start();
-        } else {
-          output.innerHTML = "fout";
-          output.style.color = "red";
-        }
-      }
-      function vk() {
-        var tekst = document.getElementById("test");
-        var output = document.getElementById("resultaat");
-
-        if(tekst.innerHTML=="De videokaart?") {
-          output.innerHTML = "goed";
-          output.style.color = "green";
-          start();
-        } else {
-          output.innerHTML = "fout";
-          output.style.color = "red";
-        }
-      }
-      function voed() {
-        var tekst = document.getElementById("test");
-        var output = document.getElementById("resultaat");
-
-        if(tekst.innerHTML=="De moederbord stroom input?") {
-          output.innerHTML = "goed";
-          output.style.color = "green";
-          start();
-        } else {
-          output.innerHTML = "fout";
-          output.style.color = "red";
-        }
-      }
-      function port() {
-        var tekst = document.getElementById("test");
-        var output = document.getElementById("resultaat");
-
-        if(tekst.innerHTML=="Je jouw apparaten aansluiten?") {
-          output.innerHTML = "goed";
-          output.style.color = "green";
-          start();
-        } else {
-          output.innerHTML = "fout";
-          output.style.color = "red";
-        }
-      }
-      function sata() {
-        var tekst = document.getElementById("test");
-        var output = document.getElementById("resultaat");
-
-        if(tekst.innerHTML=="De SATA apparaten worden aangesloten?") {
-          output.innerHTML = "goed";
-          output.style.color = "green";
-          start();
-        } else {
-          output.innerHTML = "fout";
-          output.style.color = "red";
-        }
-      }
-      function kabel() {
-        var tekst = document.getElementById("test");
-        var output = document.getElementById("resultaat");
-
-        if(tekst.innerHTML=="De overige resterende kabeltjes?") {
-          output.innerHTML = "goed";
-          output.style.color = "green";
-          start();
-        } else {
-          output.innerHTML = "fout";
-          output.style.color = "red";
-        }
-      }
     </script>
   </head>
   <body>
@@ -150,15 +51,22 @@
       </div>
     </nav>
     <article><br><br>
-    <h1>Welkom bij de game</h1>
-    <button id="start" onclick="start()">Start</button>
+
+      <!-- Game top -->
+      <h1>Welkom bij de game</h1>
+      <p>Weet jij waar alle onderdelen op het moederbord horen? Test jezelf door de game hieronder te spelen, en probeer een zo hoog mogelijke highscore te halen.</p>
+      <button id="start" onclick="start()">Start</button><br><br>
+      <button id="start" onclick="reset()">Reset</button>
     <h1>Waar moet(en):</h1>
     <p id="test">
 
     </p>
     <p id="resultaat">
 
+      <!-- Game moederbord -->
     </p>
+      <p>Je score is:</p>
+      <p id="counter">0</p>
     <div id="game">
        <button id="portg" onclick="port()"></button>
        <button id="socketg" onclick="pros()"></button>
@@ -169,7 +77,151 @@
        <button id="satag" onclick="sata()"></button>
        <button id="kabelg" onclick="kabel()"></button>
     </div>
-    </article>
+
+     
+      <script>
+        //game counter
+        
+        var out = document.getElementById("counter");
+        var count = 0;
+
+        function herstart() {
+          count = 0;
+          out.innerHTML = count;
+        }
+        function minderc() {
+          count -= 1;
+          out.innerHTML = count;
+        }
+        function extra() {
+          count += 1;
+          out.innerHTML = count;
+        }
+
+        //Game knoppen
+        
+        function reset() {
+          herstart();
+        }
+        function start() {
+          var tekst = document.getElementById("test");
+          var output = document.getElementById("resultaat");
+          var compk = ['De processor?', 'Het ram?', 'De videokaart?', 'De SATA apparaten worden aangesloten?', 'De overige resterende kabeltjes?', 'Je jouw apparaten aansluiten?', 'De moederbord stroom input?'];
+          var comp = compk[Math.round(Math.random()*(compk.length-1))];
+
+          tekst.innerHTML = comp;
+        }
+        
+        //game moederbord
+        
+        function pros() {
+          var tekst = document.getElementById("test");
+          var output = document.getElementById("resultaat");
+
+          if(tekst.innerHTML=="De processor?") {
+            output.innerHTML = "goed";
+            output.style.color = "green";
+            extra();
+            start();
+          } else {
+            output.innerHTML = "fout";
+            output.style.color = "red";
+            minderc();
+          }
+        }
+        function ram() {
+          var tekst = document.getElementById("test");
+          var output = document.getElementById("resultaat");
+
+          if(tekst.innerHTML=="Het ram?") {
+            output.innerHTML = "goed";
+            output.style.color = "green";
+            start();
+            extra();
+          } else {
+            output.innerHTML = "fout";
+            output.style.color = "red";
+            minderc();
+          }
+        }
+        function vk() {
+          var tekst = document.getElementById("test");
+          var output = document.getElementById("resultaat");
+
+          if(tekst.innerHTML=="De videokaart?") {
+            output.innerHTML = "goed";
+            output.style.color = "green";
+            start();
+            extra();
+          } else {
+            output.innerHTML = "fout";
+            output.style.color = "red";
+            minderc();
+          }
+        }
+        function voed() {
+          var tekst = document.getElementById("test");
+          var output = document.getElementById("resultaat");
+
+          if(tekst.innerHTML=="De moederbord stroom input?") {
+            output.innerHTML = "goed";
+            output.style.color = "green";
+            start();
+            extra();
+          } else {
+            output.innerHTML = "fout";
+            output.style.color = "red";
+            minderc();
+          }
+        }
+        function port() {
+          var tekst = document.getElementById("test");
+          var output = document.getElementById("resultaat");
+
+          if(tekst.innerHTML=="Je jouw apparaten aansluiten?") {
+            output.innerHTML = "goed";
+            output.style.color = "green";
+            start();
+            extra();
+          } else {
+            output.innerHTML = "fout";
+            output.style.color = "red";
+            minderc();
+          }
+        }
+        function sata() {
+          var tekst = document.getElementById("test");
+          var output = document.getElementById("resultaat");
+
+          if(tekst.innerHTML=="De SATA apparaten worden aangesloten?") {
+            output.innerHTML = "goed";
+            output.style.color = "green";
+            extra();
+            start();
+          } else {
+            output.innerHTML = "fout";
+            output.style.color = "red";
+            minderc();
+          }
+        }
+        function kabel() {
+          var tekst = document.getElementById("test");
+          var output = document.getElementById("resultaat");
+
+          if(tekst.innerHTML=="De overige resterende kabeltjes?") {
+            output.innerHTML = "goed";
+            output.style.color = "green";
+            start();
+            extra();
+          } else {
+            output.innerHTML = "fout";
+            output.style.color = "red";
+            minderc();
+          }
+        }
+      </script>
+  
+  </article>
   <footer>
     Deze site is gemaakt door Steven Prinsen en Olivier Dral voor een schoolopdracht. <br>@2018
   </footer>
